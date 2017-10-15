@@ -1,0 +1,40 @@
+<!--<div *ngIf="!auth.currentUser; else alreadyLoggedIn">
+  <h3>Social Login</h3>
+  <button (click)="signInWithGoogle()">
+        <i ></i> Connect Google
+      </button>
+  <button (click)="signInWithGithub()">
+        <i></i> Connect GitHub
+      </button>
+  <button (click)="signInWithFacebook()">
+        <i ></i> Connect Facebook
+      </button>
+  <button (click)="signInWithTwitter()">
+        <i ></i> Connect Twitter
+      </button>
+  <hr>
+  <h3>Anonymous Login</h3>
+  <button (click)="signInAnonymously()">
+          <i></i> Connect Anonymously
+        </button>
+  <hr>
+</div>
+-->
+<div class="g-row sign-in" *ngIf="!auth.currentUser; else alreadyLoggedIn">
+  <div class="g-col">
+    <h1 class="sign-in__heading">Login</h1>
+    <button class="sign-in__button" (click)="signInAnonymously()" type="button">Anonymously</button>
+    <button class="sign-in__button" (click)="signInWithGithub()" type="button">GitHub</button>
+    <button class="sign-in__button" (click)="signInWithGoogle()" type="button">Google</button>
+    <button class="sign-in__button" (click)="signInWithFacebook()" type="button">Facebook</button>
+  </div>
+</div>
+<ng-template #alreadyLoggedIn>
+  <p>
+    Already logged in!
+  </p>
+  <div *ngIf="auth.currentUser">
+    <h3>{{ auth.currentUserDisplayName }}</h3>
+    <button (click)="logout()">Logout</button>
+  </div>
+</ng-template>

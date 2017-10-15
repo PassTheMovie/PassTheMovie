@@ -1,0 +1,14 @@
+<nav>
+  <div [ngClass]="{'is-active': show}">
+    <a routerLink="/login">
+      Login
+    </a>
+  </div>
+  <div  *ngIf="auth.currentUser">
+    <h3> {{ auth.currentUserDisplayName }}</h3>
+    <img class="card-img-top" [src]="auth.currentUser.photoURL || 'https://api.adorable.io/avatars/109/fire.png'" width=50px>
+    <p class="text-truncate">UID: {{ auth.currentUserId }}</p>
+    <button class="button" (click)="logout()">Logout</button>
+
+</div>
+</nav>
