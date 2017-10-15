@@ -20,13 +20,14 @@
   <hr>
 </div>
 -->
-<div class="jumbotron" *ngIf="!auth.currentUser; else alreadyLoggedIn">
-  <div class="form-horizontal">
-    <h1 class="sign-in__heading">Login</h1>
-    <button class="btn btn-default" (click)="signInAnonymously()" type="button">Anonymously</button>
-    <button class="btn btn-default" (click)="signInWithGithub()" type="button">GitHub</button>
-    <button class="btn btn-default" (click)="signInWithGoogle()" type="button">Google</button>
-    <button class="btn btn-default" (click)="signInWithFacebook()" type="button">Facebook</button>
+<div class="g-row sign-in" *ngIf="!auth.currentUser; else alreadyLoggedIn">
+  <div class="g-col">
+    <h1 class="sign-in__heading"></h1>
+    <button class="sign-in__button" (click)="signInAnonymously()" type="button">Anonymously</button><br>
+    <button class="sign-in__button" (click)="signInWithGithub()" type="button">GitHub</button><br>
+    <button class="sign-in__button" (click)="signInWithGoogle()" type="button">Google</button><br>
+    <button class="sign-in__button" (click)="signInWithFacebook()" type="button">Facebook</button><br>
+
   </div>
 </div>
 <ng-template #alreadyLoggedIn>
