@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule, JsonpModule } from '@angular/http';
 //services
-import { AuthService } from './auth.service';
+import { AuthService } from './services/auth.service';
+import { MoviesService } from './services/movies.service';
 //components
 import { AppComponent } from './app.component';
 import { LoginComponent } from './ui/login/login.component';
@@ -29,9 +31,11 @@ import { RoutingModule } from './routing/routing.module';
     AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireDatabaseModule,
-    RoutingModule
+    RoutingModule,
+    HttpModule,
+    JsonpModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, MoviesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
