@@ -8,7 +8,7 @@ import { TopNavComponent } from '../ui/top-nav/top-nav.component';
 import { HomeComponent } from '../ui/home/home.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent, },
-  { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
 ];
 
 
