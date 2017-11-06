@@ -20,6 +20,7 @@ import { environment } from '../environments/environment';
 import { RoutingModule } from './routing/routing.module';
 import { MovieDetailComponent } from './ui/movie-detail/movie-detail.component';
 import { MovieSearchResultComponent } from './ui/movie-search-result/movie-search-result.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { MovieSearchResultComponent } from './ui/movie-search-result/movie-searc
     TopNavComponent,
     HomeComponent,
     MovieDetailComponent,
-    MovieSearchResultComponent
+    MovieSearchResultComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
