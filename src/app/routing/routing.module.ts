@@ -6,11 +6,13 @@ import { AppComponent } from '../app.component';
 import { LoginComponent } from '../ui/login/login.component';
 import { TopNavComponent } from '../ui/top-nav/top-nav.component';
 import { HomeComponent } from '../ui/home/home.component';
+import { MovieDetailComponent } from '../ui/movie-detail/movie-detail.component';
+
 const routes: Routes = [
   { path: 'login', component: LoginComponent, },
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'movie/:id', component: MovieDetailComponent, canActivate: [AuthGuard] }
 ];
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
