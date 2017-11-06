@@ -12,5 +12,7 @@ export class MovieSearchResultComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  public removeSearchResults() {
+    this.moviesService.setSharedSearchResult([]);
+  }
 }
