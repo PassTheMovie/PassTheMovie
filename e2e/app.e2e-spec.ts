@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('proje App', () => {
+describe('boostrapdeneme App', () => {
   let page: AppPage;
 
   beforeEach(() => {

@@ -14,8 +14,7 @@ export class AuthService {
   userRef: AngularFireObject<any>;
 
   constructor(private afAuth: AngularFireAuth,
-    private db: AngularFireDatabase,
-    private router: Router) {
+    private db: AngularFireDatabase, private router: Router) {
 
     this.afAuth.authState.subscribe((auth) => {
       this.authState = auth
@@ -88,37 +87,38 @@ export class AuthService {
       })
       .catch(error => console.log(error));
   }
-/*
-  emailSignUp(email: string, password: string) {
-    return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
-      .then((user) => {
-        this.authState = user
-        this.updateUserData()
-      })
-      .catch(error => console.log(error));
-  }
-
-  emailLogin(email: string, password: string) {
-    return this.afAuth.auth.signInWithEmailAndPassword(email, password)
-      .then((user) => {
-        this.authState = user
-        this.updateUserData()
-      })
-      .catch(error => console.log(error));
-  }
-
-  resetPassword(email: string) {
-    const fbAuth = firebase.auth();
-
-    return fbAuth.sendPasswordResetEmail(email)
-      .then(() => console.log('email sent'))
-      .catch((error) => console.log(error))
-  }
-*/
+  /*
+    emailSignUp(email: string, password: string) {
+      return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+        .then((user) => {
+          this.authState = user
+          this.updateUserData()
+        })
+        .catch(error => console.log(error));
+    }
+  
+    emailLogin(email: string, password: string) {
+      return this.afAuth.auth.signInWithEmailAndPassword(email, password)
+        .then((user) => {
+          this.authState = user
+          this.updateUserData()
+        })
+        .catch(error => console.log(error));
+    }
+  
+    resetPassword(email: string) {
+      const fbAuth = firebase.auth();
+  
+      return fbAuth.sendPasswordResetEmail(email)
+        .then(() => console.log('email sent'))
+        .catch((error) => console.log(error))
+    }
+  */
   signOut(): void {
     this.afAuth.auth.signOut();
-    this.router.navigate(['login'])
+    this.router.navigate([''])
   }
+
 
   private updateUserData(): void {
 

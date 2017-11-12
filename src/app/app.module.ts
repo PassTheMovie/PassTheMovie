@@ -1,49 +1,52 @@
+//modules
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-//services
-import { AuthService } from './services/auth.service';
-import { MoviesService } from './services/movies.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RoutingModule } from './routing/routing.module';
 //components
 import { AppComponent } from './app.component';
-import { LoginComponent } from './ui/login/login.component';
-import { TopNavComponent } from './ui/top-nav/top-nav.component';
+import { AppNavbarComponent } from './ui/app-navbar/app-navbar.component';
+import { FooterComponent } from './ui/footer/footer.component';
 import { HomeComponent } from './ui/home/home.component';
+import { MovieDataComponent } from './ui/movie-data/movie-data.component';
+import { UserDataComponent } from './ui/user-data/user-data.component';
 //firebase
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { environment } from '../environments/environment';
-//modules
-import { RoutingModule } from './routing/routing.module';
-import { MovieDetailComponent } from './ui/movie-detail/movie-detail.component';
-import { MovieSearchResultComponent } from './ui/movie-search-result/movie-search-result.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
+//services
+import { AuthService } from './services/auth.service';
+import { MoviesService } from './services/movies.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    TopNavComponent,
+    AppNavbarComponent,
+    FooterComponent,
     HomeComponent,
-    MovieDetailComponent,
-    MovieSearchResultComponent,
-    NavbarComponent
+    MovieDataComponent,
+    UserDataComponent,
   ],
   imports: [
+    BrowserModule,
+    NgbModule.forRoot(),
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireDatabaseModule,
-    RoutingModule,
     HttpModule,
     JsonpModule,
-    FormsModule
+    FormsModule,
+    RoutingModule
   ],
   providers: [AuthService, MoviesService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+}
