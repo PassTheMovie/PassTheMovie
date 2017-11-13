@@ -1,0 +1,16 @@
+<app-carousel></app-carousel>
+
+<div class="container">
+  <h1 class="featured-header">Featured Movies</h1>
+  <div class="card-wrap">
+    <div *ngFor="let feature of featured | slice:0:4; let i=index">
+      <app-featured [feature]="feature"></app-featured>
+    </div>
+  </div>
+
+  <h1 class="featured-header">Genre</h1>
+  <div *ngFor="let genre of genres" class="genre-wrap" (click)="onOpenGenre(genre.id)">
+    <span class="genre">{{ genre.name }}</span>
+  </div>
+
+</div>

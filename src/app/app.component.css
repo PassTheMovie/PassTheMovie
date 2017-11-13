@@ -1,0 +1,14 @@
+.wrapper {
+  display: flex;
+  min-height: calc(100vh - 65px);
+  flex-direction: column;
+  margin-top: 56px;
+}
+@media (max-width: 920px) {
+  .wrapper {
+    margin-top: 54px;
+  }
+}
+.wrapper-content {
+  flex: 1;
+}

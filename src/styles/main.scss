@@ -1,0 +1,79 @@
+@import 'mixin';
+
+button {
+  cursor: pointer;
+}
+
+.gradient-img {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to bottom, rgba(255,0,0,0), rgba(18,25,79,.8));
+}
+
+.card-wrap {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-gap: 10px;
+  margin: 20px;
+  @include break-point($max-width: $md-min) {
+    grid-template-columns: 50% 50%;
+  }
+  @include break-point($max-width: $xs-min) {
+    grid-template-columns: 100%;
+  }
+}
+
+.featured-header {
+  text-align: center;
+  padding: 15px;
+}
+
+.card-img-top {
+  width: 100%;
+}
+.card-title {
+  min-height: 70px;
+  border-bottom: 1px solid rgba(0,0,0,.125);
+}
+.card-text {
+  display: block; /* Fallback for non-webkit */
+  display: -webkit-box;
+  max-width: 400px;
+  height: 16px*1.4*4; /* Fallback for non-webkit */
+  margin: 0 auto;
+  font-size: 16px;
+  line-height: 1.4;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.progress-wrap {
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid rgba(0,0,0,.125);
+}
+
+.modal-close {
+  color: #ffffff;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  z-index: 20;
+  cursor: pointer;
+}
+.modal-dialog {
+  max-width: 80%;
+  height: auto;
+}
+.dark-modal .modal-content {
+  background: #292b2c;
+  color: white;
+}
+
+.pagination li {
+  cursor: pointer;
+}

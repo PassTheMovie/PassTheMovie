@@ -1,0 +1,11 @@
+<ngb-carousel>
+  <ng-template ngbSlide *ngFor="let slide of slides ">
+    <div class="gradient-img"></div>
+    <div class="wrap" [ngStyle]="{'background-image':'url(https://image.tmdb.org/t/p/w1000' + slide.backdrop_path+ ')'}">
+    </div>
+    <div class="carousel-caption">
+      <h3 class="carousel__header" (click)="onDetails(slide.id)">{{ slide.title }}</h3>
+      <p class="carousel__descripption">{{ slide.overview }}</p>
+    </div>
+  </ng-template>
+</ngb-carousel>

@@ -1,0 +1,57 @@
+<div class="poster">
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1 class="poster__header">{{ cast.name }}</h1>
+        <h2 class="txt-color poster__tagline">{{ cast.place_of_birth }}</h2>
+        <p class="txt-color">Birth Date: <span class="badge badge-success">{{ cast.birthday | date }}</span></p>
+        <p class="txt-color" *ngIf="cast.deathday">Death Date: <span class="badge badge-danger">{{ cast.deathday | date }}</span></p>
+        <p class="txt-color poster__overview"><span class="font-weight-bold">Overview:</span> <br> {{ cast.biography }}</p>
+      </div>
+    <div class="col poster__image-wrap">
+        <img class="poster__image" src="https://image.tmdb.org/t/p/w500{{ cast.profile_path }}" alt="{{ cast.name }}">
+    </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+
+  <div class="card-wrap">
+    <div *ngFor="let movie of projects.cast">
+
+      <div class="card">
+        <img class="card-img-top" src="https://image.tmdb.org/t/p/w1000{{ movie.poster_path }}" onerror="this.src='http://riosparadalaw.com/en/wp-content/uploads/2014/02/placeholder-600x800.jpg'">
+        <div class="card-block">
+          <h4 class="card-title">{{ movie.title }}</h4>
+          <p class="card-text">{{ movie.overview }}</p>
+          <br>
+          <span class="font-weight-bold">Rating:</span>
+          <div class="progress-wrap">
+            
+             <ngb-progressbar
+                  *ngIf="movie.vote_average  <= 5 "
+                  showValue="true"
+                  type="{{ movie.vote_average  < 3 ? 'danger' : 'warning' }}"
+                  [value]="movie.vote_average * 10">
+              </ngb-progressbar>
+              <ngb-progressbar
+                   *ngIf="movie.vote_average  > 5 "
+                   showValue="true"
+                   type="{{ movie.vote_average  < 8 ? 'info' : 'success' }}"
+                   [value]="movie.vote_average * 10">
+               </ngb-progressbar>
+
+             <br>
+             <span class="font-weight-bold">Relese: </span><span class="badge badge-success">{{ movie.release_date | date }}</span>
+           </div>
+          <button (click)="onDetails(movie.id)" class="btn btn-primary btn-block">Details</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>

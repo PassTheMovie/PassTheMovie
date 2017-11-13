@@ -1,0 +1,97 @@
+<div [ngStyle]="{'background-image':'url(https://image.tmdb.org/t/p/w1000' + movie.backdrop_path + ')'}" class="poster">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <h1 class="poster__header">{{ movie.original_title }}</h1>
+        <h2 class="txt-color poster__tagline">{{ movie.tagline }}</h2>
+        <p class="txt-color">Relese Date:
+          <span class="badge badge-success">{{ movie.release_date | date }}</span>
+        </p>
+        <p class="txt-color poster__overview">
+          <span class="font-weight-bold">Overview:</span>
+          <br> {{ movie.overview }}</p>
+        <a class="txt-color" href="{{ movie.homepage }}" target="_blank">Visit movie page</a>
+      </div>
+      <div class="col-12 col-md-6 poster__image-wrap">
+        <img class="poster__image" src="https://image.tmdb.org/t/p/w1000{{ movie.poster_path }}" alt="{{ movie.original_title }}">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <br>
+      <h3 class="text-center">Movie Rating</h3>
+      <ngb-progressbar showValue="true" type={{classes}} [value]="movie.vote_average * 10">
+      </ngb-progressbar>
+    </div>
+  </div>
+</div>
+<div class="container trailer-acordion">
+  <ngb-accordion [closeOthers]="true">
+    <ngb-panel id="static-1" title="Trailers">
+      <ng-template ngbPanelContent>
+        <div class="trailers">
+          <div class="trailers__item" *ngFor="let tr of trailer | slice:0:4">
+            <h5>{{ tr.name }}</h5>
+            <div class="card" (click)="modal(content)">
+              <div class="poster-image" [ngStyle]="{
+              'background-image': 'url(https://i.ytimg.com/vi_webp/' + tr.key + '/sddefault.webp)'}"></div>
+            </div>
+            <ng-template #content let-c="close" let-d="dismiss">
+              <span class="modal-close" (click)="c('Close click')">X</span>
+              <div class="modal-body">
+                <iframe [src]="sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + tr.key + '?rel=0&amp;controls=0&amp;showinfo=0')"
+                  frameborder="0" allowfullscreen></iframe>
+              </div>
+            </ng-template>
+          </div>
+        </div>
+      </ng-template>
+    </ngb-panel>
+  </ngb-accordion>
+</div>
+<app-cast [cast]="cast"></app-cast>
+<div class="row money">
+  <div class="col-12 col-sm-12 col-md-4">
+    <div *ngFor="let c of crew">
+      <div class="card" *ngIf="c.job == 'Director'">
+        <img class="card-img-top" src="https://image.tmdb.org/t/p/w1000{{ c.profile_path }}" onerror="this.src='http://riosparadalaw.com/en/wp-content/uploads/2014/02/placeholder-600x800.jpg'">
+        <div class="card-block">
+          <h5 class="title">{{ c.name }}</h5>
+          <span class="text-muted">{{ c.job }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-sm-12 col-md-4 revenue">
+    <h3>Box Office Numbers</h3>
+    <br>
+    <p>Movie Budget:
+      <span class="revenue__budget">{{ movie.budget | currency:"USD":true }}</span>
+    </p>
+    <br>
+    <p>Movie Income:
+      <span class="revenue__income">{{ movie.revenue | currency:"USD":true }}</span>
+    </p>
+    <br>
+    <div class="revenue__wrap">
+      <round-progress [current]="movie.revenue" [max]="movie.revenue + movie.budget" [color]="movie.revenue - movie.budget > 0 ? '#45ccce' : 'red'">Test</round-progress>
+    </div>
+  </div>
+  <div class="col-12 col-sm-12 col-md-4">
+    <h3 class="text-muted">Reviews</h3>
+    <br>
+    <ngb-tabset *ngIf="review.length > 0">
+      <ngb-tab *ngFor="let rev of review; let i = index" title="{{ i }}">
+        <ng-template ngbTabContent>
+          <div class="review__wrap">
+            <h1 class="display-3">{{ rev.author }}</h1>
+            <p class="rewiew__text">{{ rev.content }}</p>
+          </div>
+        </ng-template>
+      </ngb-tab>
+    </ngb-tabset>
+  </div>
+</div>

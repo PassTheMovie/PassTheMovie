@@ -1,0 +1,9 @@
+<div class="cast-wrap" *ngFor="let c of cast | slice:0:8">
+  <div class="card" style="cursor: pointer" (click)="personDetails(c.id)">
+    <img class="card-img-top" src="https://image.tmdb.org/t/p/w1000{{ c.profile_path }}" onerror="this.src='http://riosparadalaw.com/en/wp-content/uploads/2014/02/placeholder-600x800.jpg'">
+    <div class="card-block">
+      <h5 class="title">{{ c.name }}</h5>
+      <span class="text-muted">{{ c.character }}</span>
+    </div>
+  </div>
+</div>

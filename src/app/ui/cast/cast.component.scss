@@ -1,0 +1,20 @@
+@import '../../../styles/mixin';
+
+.cast-wrap {
+  display: inline-block;
+  width: 10%;
+  margin: 1.25%;
+
+  @include break-point($max-width: $md-min) {
+    width: 20%;
+    margin: 2.5%;
+  }
+  @include break-point($max-width: $sm-min) {
+    width: 46%;
+    margin: 1%;
+  }
+  @include break-point($max-width: $xs-min) {
+    width: 96%;
+    margin: 2%;
+  }
+}

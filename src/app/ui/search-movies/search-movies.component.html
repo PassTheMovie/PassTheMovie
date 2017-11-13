@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <br>
+      <form novalidate #f="ngForm" (ngSubmit)="onSubmit()">
+        <div class="input-group">
+
+          <input [(ngModel)]="search"
+                 minlength="3"
+                 required
+                 name="search"
+                 class="form-control" type="text" placeholder="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<app-search-result *ngIf="display" [searchResult]="searchResult"></app-search-result>
