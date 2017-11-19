@@ -1,3 +1,4 @@
+
 <div class="container relative">
   <div *ngIf="auth.currentUser">
     <div id="user" class="userinfo">
@@ -7,6 +8,10 @@
         <div class="image-wrapper" id="image" role="image">
             <img [src]="auth.currentUser.photoURL || 'https://api.adorable.io/avatars/109/fire.png'">
         </div>
+    </div>
+
+    <div>
+      <button (click)="myEvent($event)">Tıkla bana</button>
     </div>
   </div>
   <app-recommendation></app-recommendation>
