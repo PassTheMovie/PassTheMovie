@@ -14,9 +14,9 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./recommendation.component.css']
 })
 export class RecommendationComponent implements OnInit {
+authState: any = null;
 
 
-/*
 get authenticated(): boolean {
   return this.authState !== null;
 }
@@ -25,10 +25,18 @@ get currentUserId(): string {
   return this.authenticated ? this.authState.uid : '';
 }
 
+
   myEvent(id){
-    console.log(id);
+  //  console.log(id);
+    var user = firebase.auth().currentUser;
+    var uid;
+    if(user != null){
+      uid = user.uid;
+    }
+    
+
     var database = firebase.database();
-    var ref = database.ref(`users/${this.currentUserId}/firstmovie`);
+    var ref = database.ref(`users/${uid}/firstmovie`);
     var data = {
       id: id,
     }
@@ -36,9 +44,7 @@ get currentUserId(): string {
     ref.push(data);
 
 
-  }
-*/
-
+  } 
 
   latest;
   page = 1;
