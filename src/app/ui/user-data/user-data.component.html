@@ -4,6 +4,7 @@
     <div id="user" class="userinfo">
         <div class="content-wrapper">
             <h5>{{ auth.currentUserDisplayName }}</h5>
+            <h6> {{auth.currentUserId}} </h6>
         </div>
         <div class="image-wrapper" id="image" role="image">
             <img [src]="auth.currentUser.photoURL || 'https://api.adorable.io/avatars/109/fire.png'">
@@ -11,7 +12,7 @@
     </div>
 
     <div>
-      <button (click)="myEvent($event)">Tıkla bana</button>
+      <button (click)="myEvent(movie.id)">Tıkla bana</button>
     </div>
   </div>
   <app-recommendation></app-recommendation>
