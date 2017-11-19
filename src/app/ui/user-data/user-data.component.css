@@ -1,0 +1,28 @@
+div.relative{
+  margin: 20px;
+}
+
+.content-wrapper { float:left; }
+.image-wrapper img { border-radius:50%; }
+#user {
+  display: flex;
+  flex-direction: row;
+  align-items: right;
+
+}
+#image{
+
+  width: 10%;
+  max-width: 5px;
+}
+
+.userinfo{
+    position: absolute;
+    right: 0px;
+    width: 100px;
+}
+
+.icon-size
+{
+    font-size: 10px;
+}

@@ -1,7 +1,13 @@
-<div class="container">
+<div class="container relative">
   <div *ngIf="auth.currentUser">
-    <h3> {{ auth.currentUserDisplayName }}</h3>
-    <img [src]="auth.currentUser.photoURL || 'https://api.adorable.io/avatars/109/fire.png'" height="auto" width="100px">
+    <div id="user" class="userinfo">
+        <div class="content-wrapper">
+            <h5>{{ auth.currentUserDisplayName }}</h5>
+        </div>
+        <div class="image-wrapper" id="image" role="image">
+            <img [src]="auth.currentUser.photoURL || 'https://api.adorable.io/avatars/109/fire.png'">
+        </div>
+    </div>
   </div>
   <app-recommendation></app-recommendation>
 </div>
