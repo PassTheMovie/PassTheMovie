@@ -3,16 +3,16 @@
   <div *ngIf="auth.currentUser">
     <div id="user" class="userinfo">
         <div class="content-wrapper">
-            <h5>{{ auth.currentUserDisplayName }}</h5>
-            <h6> {{auth.currentUserId}} </h6>
+            <h6>{{ auth.currentUserDisplayName }}</h6>
+            
         </div>
-        <div class="image-wrapper" id="image" role="image">
+        <div class="image-wrapper" id="" role="image">
             <img [src]="auth.currentUser.photoURL || 'https://api.adorable.io/avatars/109/fire.png'">
         </div>
     </div>
 
     <div>
-      <button (click)="myEvent(movie.id)">Tıkla bana</button>
+      
     </div>
   </div>
   <app-recommendation></app-recommendation>

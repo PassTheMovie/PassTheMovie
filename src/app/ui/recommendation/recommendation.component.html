@@ -1,5 +1,5 @@
 <div class="container">
-  <h1 class="featured-header">Popular Movies</h1>
+  <h1 class="featured-header">Let's know you</h1>
 
 
   <div class="card-wrap">
@@ -21,7 +21,9 @@
               [value]="movie.vote_average * 10">
             </ngb-progressbar>
           </div>
-          <button (click)="myEvent(movie.id)" class="btn btn-info btn-block">Details</button>
+          <button (click)="onDetails(movie.id)" class="btn btn-info btn-block">Details</button>
+          <button id="dontlike" class="btn btn-warning btn-block">Don't like</button>
+          <button id="like" (click)="myEvent(movie.id)" class="btn btn-success btn-block">Like</button>
         </div>
       </div>
 
