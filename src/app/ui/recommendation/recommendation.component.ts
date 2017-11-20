@@ -7,7 +7,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import * as firebase from 'firebase/app';
 import { AuthService } from '../../services/auth.service';
-
+declare var $:any;
 @Component({
   selector: 'app-recommendation',
   templateUrl: './recommendation.component.html',
@@ -43,8 +43,9 @@ get currentUserId(): string {
     console.log(data);
     ref.push(data);
 
-
-  } 
+  }
+ 
+  
 
   latest;
   page = 1;
@@ -62,7 +63,7 @@ get currentUserId(): string {
     this.popular();
   }
 
-
+  
 
 
   popular() {
@@ -93,4 +94,8 @@ get currentUserId(): string {
     this.previous = false;
   }
 
+  
+
 }
+
+
