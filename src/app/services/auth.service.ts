@@ -133,5 +133,7 @@ export class AuthService {
     userRef.update(data)
       .catch(error => console.log(error));
   }
+  
+
 
 }
