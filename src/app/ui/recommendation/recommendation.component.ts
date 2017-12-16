@@ -68,6 +68,7 @@ export class RecommendationComponent implements OnInit {
 
   }
 
+
   latest;
   page = 1;
   previous = true;

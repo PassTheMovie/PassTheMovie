@@ -26,11 +26,21 @@ export class TestComponent implements OnInit {
     if (user != null) {
       uid = user.uid;
     }
+
+    var db = firebase.database();
+    var ref = db.ref(`users/${uid}`);
     
-    this.coursesObservable = this.getCourses(`/users/${uid}`);
-    console.log();
+    ref.child('secondmovie').on("value", function(snapshot) {
+      var firstid = console.log(snapshot.val());
+      
+  });
     
+    this.coursesObservable = this.getCourses(`/users`);  
+    
+
   }
+
+
   getCourses(listPath): Observable<any[]> {
     return this.db.list(listPath).valueChanges();
   }
