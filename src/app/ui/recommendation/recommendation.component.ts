@@ -7,6 +7,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import * as firebase from 'firebase/app';
 import { AuthService } from '../../services/auth.service';
+import { MovieDetailsComponent } from '../movie-details/movie-details.component';
 declare var $:any;
 @Component({
   selector: 'app-recommendation',
@@ -26,7 +27,7 @@ get currentUserId(): string {
 }
 
 
-  myEvent(id){
+  /*myEvent(id){
   //  console.log(id);
     var user = firebase.auth().currentUser;
     var uid;
@@ -34,18 +35,54 @@ get currentUserId(): string {
       uid = user.uid;
     }
     
-
     var database = firebase.database();
-    var ref = database.ref(`users/${uid}/firstmovie`);
+    var ref = database.ref(`/users/${uid}/firstmovie`);
     var data = {
       id: id,
     }
     console.log(data);
     ref.push(data);
 
+  }  */
+
+  myEvent(id){
+
+    // Import Admin SDK
+//var admin = require("firebase-admin");
+
+var user = firebase.auth().currentUser;
+var uid;
+if(user != null){
+  uid = user.uid;
+}
+// Get a database reference to our blog
+var db = firebase.database();
+var ref = db.ref(`/users/`);
+
+var usersRef = ref.child(`{${uid}}`);
+usersRef.set({
+  firstmovie: {
+     
+    firstmovie: id,
+    secondmovie: 111,
+    thirdmovie: 123
+  },
+  secondmovie: {
+    date_of_birth: "December 9, 1906",
+    full_name: "Grace Hopper"
   }
- 
-  
+});
+
+ref.on("value", function(snapshot) {
+  console.log(snapshot.val());
+}, function (errorObject) {
+  console.log("The read failed: " + errorObject.code);
+});
+
+
+  }
+
+
 
   latest;
   page = 1;
