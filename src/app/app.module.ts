@@ -39,6 +39,7 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { environment } from '../environments/environment';
+import { TestComponent } from './ui/test/test.component';
 
 
 
@@ -64,7 +65,8 @@ import { environment } from '../environments/environment';
     CastDetailsComponent,
     LoginComponent,
     UserDataComponent,
-    RecommendationComponent
+    RecommendationComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,

@@ -44,18 +44,10 @@ export class UserDataComponent implements OnInit {
     private router: Router
   ) {
 
-
-
-
-
    }
-
-
   ngOnInit() {
 
   }
-
-
 
 }
 
