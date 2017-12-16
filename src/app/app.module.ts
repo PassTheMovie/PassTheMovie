@@ -10,7 +10,8 @@ import { RoutingModule } from './routing/routing.module';
 //services
 import './services/rxjs.extension';
 import { MoviesService } from './services/movies.service';
-import { AuthService } from './services/auth.service'
+import { AuthService } from './services/auth.service';
+import { TestService } from './services/test.service';
 //components
 import { AppComponent } from './app.component';
 import { HomeComponent } from './ui/home/home.component';
@@ -81,7 +82,8 @@ import { environment } from '../environments/environment';
   ],
   providers: [
     MoviesService,
-    AuthService
+    AuthService,
+    TestService
   ],
   bootstrap: [AppComponent]
 })
