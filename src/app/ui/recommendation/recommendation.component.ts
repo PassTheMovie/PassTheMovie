@@ -25,64 +25,48 @@ get authenticated(): boolean {
 get currentUserId(): string {
   return this.authenticated ? this.authState.uid : '';
 }
-
-
-  /*myEvent(id){
-  //  console.log(id);
-    var user = firebase.auth().currentUser;
-    var uid;
-    if(user != null){
-      uid = user.uid;
-    }
-    
-    var database = firebase.database();
-    var ref = database.ref(`/users/${uid}/firstmovie`);
-    var data = {
-      id: id,
-    }
-    console.log(data);
-    ref.push(data);
-
-  }  */
+ 
 
   myEvent(id){
 
-    // Import Admin SDK
-//var admin = require("firebase-admin");
 
 var user = firebase.auth().currentUser;
 var uid;
 if(user != null){
   uid = user.uid;
 }
-// Get a database reference to our blog
+
 var db = firebase.database();
 var ref = db.ref(`/users/`);
 
-var usersRef = ref.child(`{${uid}}`);
-usersRef.set({
-  firstmovie: {
-     
-    firstmovie: id,
-    secondmovie: 111,
-    thirdmovie: 123
-  },
-  secondmovie: {
-    date_of_birth: "December 9, 1906",
-    full_name: "Grace Hopper"
+var usersRef = ref.child(`${uid}/`);
+
+
+if(id=="346364")
+  usersRef.update({
+    "firstmovie": "346364"
+  });
+
+else if(id=="8844")
+  usersRef.update({
+    "secondmovie": "8844"
+  });
+
+else if(id=="141052")
+  usersRef.update({
+    "thirdmovie": "141052"
+  });
+
+else if(id=="354912")
+  usersRef.update({
+    "fourthmovie": "354912"
+  });
+
+
+//it = 346364 jumanji = 8844 justice league= 141052 coco= 354912
+
+
   }
-});
-
-ref.on("value", function(snapshot) {
-  console.log(snapshot.val());
-}, function (errorObject) {
-  console.log("The read failed: " + errorObject.code);
-});
-
-
-  }
-
-
 
   latest;
   page = 1;
