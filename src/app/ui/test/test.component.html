@@ -1,0 +1,10 @@
+<ul>
+  <div *ngFor="let course of coursesObservable | async">
+      <ngb-alert type="info" [dismissible]="false">
+          <h3><a href="#">{{course.description}}</a> </h3>
+          <p>{{course.firstmovie}}</p>
+          <p>{{course.secondmovie}}</p>
+          
+      </ngb-alert> 
+  </div>
+</ul>

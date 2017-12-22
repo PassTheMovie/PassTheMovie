@@ -17,23 +17,6 @@ declare var $: any;
 export class RecommendationComponent implements OnInit {
   authState: any = null;
 
-  latest;
-  page = 1;
-  previous = true;
-  rating;
-  classes = "";
-
-  constructor(
-    private _carouselService: MoviesService,
-    public _router: Router,
-    public auth: AuthService
-  ) { }
-
-  ngOnInit() {
-    this.popular();
-  }
-
-
 
   get authenticated(): boolean {
     return this.authState !== null;
@@ -43,10 +26,16 @@ export class RecommendationComponent implements OnInit {
     return this.authenticated ? this.authState.uid : '';
   }
 
+
   myEvent(id) {
 
 
-    var uid = this.currentUserId;
+    var user = firebase.auth().currentUser;
+    var uid;
+    if (user != null) {
+      uid = user.uid;
+    }
+
     var db = firebase.database();
     var ref = db.ref(`/users/`);
 
@@ -74,6 +63,26 @@ export class RecommendationComponent implements OnInit {
       });
 
 
+    //it = 346364 jumanji = 8844 justice league= 141052 coco= 354912
+
+
+  }
+
+
+  latest;
+  page = 1;
+  previous = true;
+  rating;
+  classes = "";
+
+  constructor(
+    private _carouselService: MoviesService,
+    public _router: Router,
+    public auth: AuthService
+  ) { }
+
+  ngOnInit() {
+    this.popular();
   }
 
 
@@ -90,7 +99,22 @@ export class RecommendationComponent implements OnInit {
     this._router.navigate(['/movie/' + id]);
   }
 
- 
+  prev() {
+    this.page -= 1;
+    this._carouselService.playingNowNext(this.page)
+      .subscribe(
+      res => { this.latest = res },
+    );
+  }
+
+  next() {
+    this.page += 1;
+    this._carouselService.playingNowNext(this.page)
+      .subscribe(
+      res => { this.latest = res },
+    );
+    this.previous = false;
+  }
 
 
 
