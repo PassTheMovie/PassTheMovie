@@ -44,6 +44,7 @@ export class MoviesService {
         const data = res.json();
         return data;
       })
+      .do(data => console.log(data))
       .catch(this.handleError);
   }
 
@@ -54,6 +55,7 @@ export class MoviesService {
         const data = res.json();
         return data.results;
       })
+      .do(data => console.log(data))
       .catch(this.handleError);
   }
 
@@ -64,6 +66,7 @@ export class MoviesService {
         const data = res.json();
         return data.cast;
       })
+      .do(data => console.log(data))
       .catch(this.handleError);
   }
 
@@ -71,7 +74,7 @@ export class MoviesService {
     return this._http
       .get(AppSettings.API_ENDPOINT + 'movie/' + id + '/recommendations' + AppSettings.API_KEY)
       .map((res: Response) => {
-        const data = res.json();
+        const data = res.json().results;
         return data;
       })
       .do(data => console.log(data))
@@ -85,6 +88,7 @@ export class MoviesService {
         const data = res.json();
         return data.crew;
       })
+      .do(data => console.log(data))
       .catch(this.handleError);
   }
 
@@ -95,6 +99,7 @@ export class MoviesService {
         const data = res.json();
         return data.results;
       })
+      .do(data => console.log(data))
       .catch(this.handleError);
   }
 
@@ -105,6 +110,7 @@ export class MoviesService {
         const data = res.json();
         return data.results;
       })
+      .do(data => console.log(data))
       .catch(this.handleError);
   }
 
@@ -115,7 +121,7 @@ export class MoviesService {
         const data = res.json();
         return data;
       })
-      //.do(data => console.log(data))
+      .do(data => console.log(data))
       .catch(this.handleError);
   }
 
@@ -126,7 +132,7 @@ export class MoviesService {
         const data = res.json();
         return data;
       })
-      //.do(data => console.log(data))
+      .do(data => console.log(data))
       .catch(this.handleError);
   }
 
@@ -137,7 +143,7 @@ export class MoviesService {
         const data = res.json();
         return data.genres;
       })
-      // .do(data => console.log(data))
+      .do(data => console.log(data))
       .catch(this.handleError);
   }
 
@@ -148,6 +154,7 @@ export class MoviesService {
         const data = res.json();
         return data.results;
       })
+      .do(data => console.log(data))
       .catch(this.handleError);
   }
   genreListNext(id, page) {
@@ -157,6 +164,7 @@ export class MoviesService {
         const data = res.json();
         return data.results;
       })
+      .do(data => console.log(data))
       .catch(this.handleError);
   }
 
@@ -167,6 +175,7 @@ export class MoviesService {
         const data = res.json();
         return data.results;
       })
+      .do(data => console.log(data))
       .catch(this.handleError);
   }
   featuredPage(page): Observable<Carousel[]> {
@@ -176,6 +185,7 @@ export class MoviesService {
         const data = res.json();
         return data.results;
       })
+      .do(data => console.log(data))
       .catch(this.handleError);
   }
 

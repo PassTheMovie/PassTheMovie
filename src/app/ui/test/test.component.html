@@ -1,0 +1,13 @@
+<div class="card-wrap">
+    <div *ngFor="let movie of movies">
+
+        <div class="card">
+            <img class="card-img-top" src="https://image.tmdb.org/t/p/w1000{{ movie.poster_path }}" onerror="this.src='http://riosparadalaw.com/en/wp-content/uploads/2014/02/placeholder-600x800.jpg'">
+            <div class="card-block">
+                <h4 class="card-title">{{ movie.title }}</h4>
+                <p class="card-text">{{ movie.overview }}</p>
+
+            </div>
+
+        </div>
+    </div>

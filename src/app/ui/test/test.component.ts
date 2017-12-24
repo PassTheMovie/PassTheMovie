@@ -18,6 +18,7 @@ import { MoviesService } from '../../services/movies.service';
 })
 export class TestComponent implements OnInit {
   movie: any;
+  movies: any;
   id : string;
   coursesObservable: Observable<any[]>;
   constructor(private db: AngularFireDatabase,
@@ -46,30 +47,30 @@ export class TestComponent implements OnInit {
     ref.on('value', this.gotData, this.errData);
     
     
-
-    this._movieRecomService.getrecom(181808)
+var x = this.deneme
+    this._movieRecomService.getrecom(this.deneme())
     .subscribe(
-      res => { this.movie = res },
+      res => { this.movies = res },
     );
   }
 
 
   gotData(data){  
-    
     var movies = data.val();
     var keys = Object.keys(movies);
     
-    //console.log(keys);
     for (var i = 0; i<keys.length; i++){
       var k = keys[i];
       var firstmovie = movies[k].firstmovie;     
       var secondmovie = movies[k].secondmovie;
-      console.log(firstmovie);
     }
       
     
   }
 
+  deneme(){
+    return 181808;
+  }
 
   errData(err){
     console.log(err);
