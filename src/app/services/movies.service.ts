@@ -67,6 +67,17 @@ export class MoviesService {
       .catch(this.handleError);
   }
 
+  getrecom(id) {
+    return this._http
+      .get(AppSettings.API_ENDPOINT + 'movie/' + id + '/recommendations' + AppSettings.API_KEY)
+      .map((res: Response) => {
+        const data = res.json();
+        return data;
+      })
+      .do(data => console.log(data))
+      .catch(this.handleError);
+  }
+
   getMovieCrew(id) {
     return this._http
       .get(AppSettings.API_ENDPOINT + 'movie/' + id + '/credits' + AppSettings.API_KEY)
