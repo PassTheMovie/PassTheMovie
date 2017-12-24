@@ -80,6 +80,16 @@ export class MoviesService {
       .do(data => console.log(data))
       .catch(this.handleError);
   }
+  getsim(id) {
+    return this._http
+      .get(AppSettings.API_ENDPOINT + 'movie/' + id + '/similar' + AppSettings.API_KEY)
+      .map((res: Response) => {
+        const data = res.json().results;
+        return data;
+      })
+      .do(data => console.log(data))
+      .catch(this.handleError);
+  }
 
   getMovieCrew(id) {
     return this._http

@@ -61,13 +61,13 @@ export class RecommendationComponent implements OnInit {
       usersRef.update({
         "fourthmovie": "354912"
       });
-
-
-    //it = 346364 jumanji = 8844 justice league= 141052 coco= 354912
-
+    this.visible();
 
   }
 
+  visible() {
+    document.getElementById("recom").style.visibility = "visible"
+  }
 
   latest;
   page = 1;
@@ -83,6 +83,7 @@ export class RecommendationComponent implements OnInit {
 
   ngOnInit() {
     this.popular();
+    this.hidden();
   }
 
 
@@ -117,6 +118,13 @@ export class RecommendationComponent implements OnInit {
   }
 
 
+  asd() {
+    this._router.navigate(['/basedpop']);
+  }
+
+  hidden() {
+    document.getElementById("recom").style.visibility = "hidden"
+  }
 
 }
 

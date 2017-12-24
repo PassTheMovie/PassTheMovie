@@ -21,6 +21,11 @@ import { MoviesUpcomingComponent } from '../ui/movies-upcoming/movies-upcoming.c
 import { CastDetailsComponent } from '../ui/cast-details/cast-details.component'
 import { LoginComponent } from '../ui/login/login.component';
 import { UserDataComponent } from '../ui/user-data/user-data.component';
+import { ProjectDetailComponent } from '../ui/project-detail/project-detail.component';
+
+import { Test2Component } from '../ui/test2/test2.component';
+
+import { TestComponent } from '../ui/test/test.component';
 
 import { AuthGuard } from '../services/auth.guard';
 
@@ -35,7 +40,10 @@ const routes: Routes = [
   { path: 'cast/:id', component: CastDetailsComponent },
   { path: 'movies/popular', component: MoviesComponent },
   { path: 'movies/top', component: MoviesTopComponent },
-  { path: 'movies/upcoming', component: MoviesUpcomingComponent }
+  { path: 'movies/upcoming', component: MoviesUpcomingComponent },
+  { path: 'ProjectDetail', component: ProjectDetailComponent },
+  { path: 'basedgen', component: Test2Component,canActivate: [AuthGuard] },
+  { path: 'basedpop', component: TestComponent,canActivate: [AuthGuard] }
 ]
 @NgModule({
   imports: [

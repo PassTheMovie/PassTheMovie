@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
-import { AngularFireDatabase } from 'angularfire2/database'; 
+import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import { AuthService } from '../../services/auth.service';
-
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -19,24 +17,24 @@ import { MoviesService } from '../../services/movies.service';
 export class TestComponent implements OnInit {
   movie: any;
   movies: any;
-  id : string;
+  id: string;
   coursesObservable: Observable<any[]>;
   constructor(private db: AngularFireDatabase,
     public auth: AuthService,
     public _movieRecomService: MoviesService
   ) { }
-  
+
   ngOnInit() {
-    
-    
+
+
     /*ref.child('secondmovie').on("value", function(snapshot) {
       var firstid = console.log(snapshot.val());
       
   });*/
 
-  //console.log(this.firstmovie, "DENEME");
-  
-  var user = firebase.auth().currentUser;
+    //console.log(this.firstmovie, "DENEME");
+
+    var user = firebase.auth().currentUser;
     var uid;
     if (user != null) {
       uid = user.uid;
@@ -45,34 +43,39 @@ export class TestComponent implements OnInit {
     var db = firebase.database();
     var ref = db.ref('users');
     ref.on('value', this.gotData, this.errData);
+
+  
     
-    
-var x = this.deneme
     this._movieRecomService.getrecom(this.deneme())
-    .subscribe(
+      .subscribe(
       res => { this.movies = res },
+
     );
+    console.log(this.deneme());
   }
 
 
-  gotData(data){  
+  gotData(data) {
     var movies = data.val();
     var keys = Object.keys(movies);
-    
-    for (var i = 0; i<keys.length; i++){
+
+    for (var i = 0; i < keys.length; i++) {
       var k = keys[i];
-      var firstmovie = movies[k].firstmovie;     
+      var firstmovie = movies[k].firstmovie;
       var secondmovie = movies[k].secondmovie;
     }
-      
-    
+
+
   }
 
-  deneme(){
-    return 181808;
+  deneme() {
+    var myArray = [346364,181808,354912,141052];
+    var rand = myArray[Math.floor(Math.random() * myArray.length)];
+    return rand;
+
   }
 
-  errData(err){
+  errData(err) {
     console.log(err);
   }
 

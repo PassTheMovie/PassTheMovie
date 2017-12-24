@@ -40,6 +40,8 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { environment } from '../environments/environment';
 import { TestComponent } from './ui/test/test.component';
+import { ProjectDetailComponent } from './ui/project-detail/project-detail.component';
+import { Test2Component } from './ui/test2/test2.component';
 
 
 
@@ -66,7 +68,9 @@ import { TestComponent } from './ui/test/test.component';
     LoginComponent,
     UserDataComponent,
     RecommendationComponent,
-    TestComponent
+    TestComponent,
+    ProjectDetailComponent,
+    Test2Component
   ],
   imports: [
     BrowserModule,
