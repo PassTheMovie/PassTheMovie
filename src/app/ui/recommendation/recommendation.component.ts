@@ -26,21 +26,15 @@ export class RecommendationComponent implements OnInit {
     return this.authenticated ? this.authState.uid : '';
   }
 
-
   myEvent(id) {
-
-
     var user = firebase.auth().currentUser;
     var uid;
     if (user != null) {
       uid = user.uid;
     }
-
     var db = firebase.database();
     var ref = db.ref(`/users/`);
-
     var usersRef = ref.child(`${uid}/`);
-
 
     if (id == "346364")
       usersRef.update({
@@ -65,10 +59,6 @@ export class RecommendationComponent implements OnInit {
 
   }
 
-  visible() {
-    document.getElementById("recom").style.visibility = "visible"
-  }
-
   latest;
   page = 1;
   previous = true;
@@ -85,9 +75,6 @@ export class RecommendationComponent implements OnInit {
     this.popular();
     this.hidden();
   }
-
-
-
 
   popular() {
     this._carouselService.playingNow()
@@ -117,7 +104,6 @@ export class RecommendationComponent implements OnInit {
     this.previous = false;
   }
 
-
   asd() {
     this._router.navigate(['/basedpop']);
   }
@@ -126,6 +112,10 @@ export class RecommendationComponent implements OnInit {
     document.getElementById("recom").style.visibility = "hidden"
   }
 
+  visible() {
+    document.getElementById("recom").style.visibility = "visible"
+  }
+  
 }
 
 

@@ -1,26 +1,17 @@
 <div class="container">
     <h1 class="featured-header">Recommendations</h1>
-
     <div class="btn-group" role="group" aria-label="Default button group">
         <button type="button" class="btn btn-secondary active">Based on Popularity</button>
         <button type="button" class="btn btn-secondary" routerLink="/basedgen">Based on Genres</button>
     </div>
-
     <div class="card-wrap">
         <div *ngFor="let movie of movies">
-
             <div class="card">
-
                 <img class="card-img-top" src="https://image.tmdb.org/t/p/w1000{{ movie.poster_path }}" onerror="this.src='http://riosparadalaw.com/en/wp-content/uploads/2014/02/placeholder-600x800.jpg'">
                 <div class="card-block">
                     <h4 class="card-title">{{ movie.title }}</h4>
                     <p class="card-text">{{ movie.overview }}</p>
-
                 </div>
-
             </div>
         </div>
-
-
-
     </div>

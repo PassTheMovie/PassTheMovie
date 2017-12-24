@@ -2,7 +2,7 @@
   <h1 class="featured-header">Let's know you</h1>
 
   <div class="card-wrap">
-    <div *ngFor="let movie of latest, let i = index" >
+    <div *ngFor="let movie of latest, let i = index">
 
       <div class="card" *ngIf="i<4">
         <img class="card-img-top" src="https://image.tmdb.org/t/p/w1000{{ movie.poster_path }}" onerror="this.src='http://riosparadalaw.com/en/wp-content/uploads/2014/02/placeholder-600x800.jpg'">
@@ -12,7 +12,6 @@
           <br>
           <span class="font-weight-bold">Rating:</span>
           <div class="progress-wrap">
-
             <ngb-progressbar *ngIf="movie.vote_average  <= 5 " showValue="true" type="{{ movie.vote_average  < 3 ? 'danger' : 'warning' }}"
               [value]="movie.vote_average * 10">
             </ngb-progressbar>
@@ -21,14 +20,11 @@
             </ngb-progressbar>
           </div>
           <button (click)="onDetails(movie.id)" class="btn btn-info btn-block">Details</button>
-          <button id="dontlike" class="btn btn-warning btn-block">Don't like</button>
-          <button id="like" (click)="myEvent(movie.id)" class="btn btn-success btn-block">Like</button>
+          <button id="dontlike" class="btn btn-warning btn-block" placement="bottom" ngbPopover="Don't like it!">Don't like</button>
+          <button id="like" (click)="myEvent(movie.id)" class="btn btn-success btn-block" placement="bottom" ngbPopover="Like it!">Like</button>
         </div>
       </div>
-
     </div>
   </div>
   <button id="recom" (click)="asd()" class="btn btn-info btn-block">Get me some good movies i may like</button>
-
-
 </div>

@@ -11,9 +11,7 @@ import { Carousel } from './../ui/carousel/Carousel';
 export class MoviesService {
 
   private carouselUrl: string = './assets/api/carousel_items.json';
-
   private searchString;
-
 
   private _navItemSource = new BehaviorSubject<string>(null);
   navItem$ = this._navItemSource.asObservable();
@@ -33,7 +31,7 @@ export class MoviesService {
         const data = res.json().results;
         return data;
       })
-      .do(data => console.log(data))
+      //.do(data => console.log(data))
       .catch(this.handleError);
   }
 
@@ -44,7 +42,7 @@ export class MoviesService {
         const data = res.json();
         return data;
       })
-      .do(data => console.log(data))
+      //.do(data => console.log(data))
       .catch(this.handleError);
   }
 
@@ -55,7 +53,7 @@ export class MoviesService {
         const data = res.json();
         return data.results;
       })
-      .do(data => console.log(data))
+      //.do(data => console.log(data))
       .catch(this.handleError);
   }
 
@@ -66,7 +64,7 @@ export class MoviesService {
         const data = res.json();
         return data.cast;
       })
-      .do(data => console.log(data))
+      //.do(data => console.log(data))
       .catch(this.handleError);
   }
 
@@ -77,7 +75,7 @@ export class MoviesService {
         const data = res.json().results;
         return data;
       })
-      .do(data => console.log(data))
+      //.do(data => console.log(data))
       .catch(this.handleError);
   }
   getsim(id) {
@@ -87,7 +85,7 @@ export class MoviesService {
         const data = res.json().results;
         return data;
       })
-      .do(data => console.log(data))
+      //.do(data => console.log(data))
       .catch(this.handleError);
   }
 
@@ -98,7 +96,7 @@ export class MoviesService {
         const data = res.json();
         return data.crew;
       })
-      .do(data => console.log(data))
+      //.do(data => console.log(data))
       .catch(this.handleError);
   }
 
@@ -109,7 +107,7 @@ export class MoviesService {
         const data = res.json();
         return data.results;
       })
-      .do(data => console.log(data))
+      //.do(data => console.log(data))
       .catch(this.handleError);
   }
 
@@ -120,7 +118,7 @@ export class MoviesService {
         const data = res.json();
         return data.results;
       })
-      .do(data => console.log(data))
+      //.do(data => console.log(data))
       .catch(this.handleError);
   }
 
@@ -131,7 +129,7 @@ export class MoviesService {
         const data = res.json();
         return data;
       })
-      .do(data => console.log(data))
+      //.do(data => console.log(data))
       .catch(this.handleError);
   }
 
@@ -142,7 +140,7 @@ export class MoviesService {
         const data = res.json();
         return data;
       })
-      .do(data => console.log(data))
+      //.do(data => console.log(data))
       .catch(this.handleError);
   }
 
@@ -153,7 +151,7 @@ export class MoviesService {
         const data = res.json();
         return data.genres;
       })
-      .do(data => console.log(data))
+      //.do(data => console.log(data))
       .catch(this.handleError);
   }
 
@@ -164,7 +162,7 @@ export class MoviesService {
         const data = res.json();
         return data.results;
       })
-      .do(data => console.log(data))
+      //.do(data => console.log(data))
       .catch(this.handleError);
   }
   genreListNext(id, page) {
@@ -174,7 +172,7 @@ export class MoviesService {
         const data = res.json();
         return data.results;
       })
-      .do(data => console.log(data))
+      //.do(data => console.log(data))
       .catch(this.handleError);
   }
 
@@ -185,7 +183,7 @@ export class MoviesService {
         const data = res.json();
         return data.results;
       })
-      .do(data => console.log(data))
+      //.do(data => console.log(data))
       .catch(this.handleError);
   }
   featuredPage(page): Observable<Carousel[]> {
@@ -195,7 +193,7 @@ export class MoviesService {
         const data = res.json();
         return data.results;
       })
-      .do(data => console.log(data))
+      //.do(data => console.log(data))
       .catch(this.handleError);
   }
 
@@ -206,7 +204,7 @@ export class MoviesService {
         const data = res.json();
         return data.results;
       })
-      .do(data => console.log(data))
+      //.do(data => console.log(data))
       .catch(this.handleError);
   }
   playingNowNext(page) {
@@ -216,7 +214,7 @@ export class MoviesService {
         const data = res.json();
         return data.results;
       })
-      .do(data => console.log(data))
+      //.do(data => console.log(data))
       .catch(this.handleError);
   }
 
@@ -227,7 +225,7 @@ export class MoviesService {
         const data = res.json();
         return data.results;
       })
-      .do(data => console.log(data))
+      //.do(data => console.log(data))
       .catch(this.handleError);
   }
   topRatedPage(page) {
@@ -237,7 +235,7 @@ export class MoviesService {
         const data = res.json();
         return data.results;
       })
-      .do(data => console.log(data))
+      //.do(data => console.log(data))
       .catch(this.handleError);
   }
 

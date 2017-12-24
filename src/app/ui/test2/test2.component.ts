@@ -16,7 +16,6 @@ import { MoviesService } from '../../services/movies.service';
 })
 export class Test2Component implements OnInit {
   movies: any;
-
   constructor(
     public _movieRecomService: MoviesService
 
@@ -26,14 +25,12 @@ export class Test2Component implements OnInit {
     this._movieRecomService.getsim(this.deneme())
       .subscribe(
       res => { this.movies = res },
-
-    );
-    console.log(this.deneme());
+    );    
   }
+
   deneme() {
     var myArray = [346364,181808,354912,141052];
     var rand = myArray[Math.floor(Math.random() * myArray.length)];
     return rand;
-
   }
 }

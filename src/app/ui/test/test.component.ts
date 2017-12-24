@@ -18,42 +18,22 @@ export class TestComponent implements OnInit {
   movie: any;
   movies: any;
   id: string;
-  coursesObservable: Observable<any[]>;
   constructor(private db: AngularFireDatabase,
     public auth: AuthService,
     public _movieRecomService: MoviesService
   ) { }
 
   ngOnInit() {
-
-
-    /*ref.child('secondmovie').on("value", function(snapshot) {
-      var firstid = console.log(snapshot.val());
-      
-  });*/
-
-    //console.log(this.firstmovie, "DENEME");
-
     var user = firebase.auth().currentUser;
-    var uid;
-    if (user != null) {
-      uid = user.uid;
-    }
-
     var db = firebase.database();
     var ref = db.ref('users');
-    ref.on('value', this.gotData, this.errData);
-
-  
-    
+    ref.on('value', this.gotData, this.errData);    
     this._movieRecomService.getrecom(this.deneme())
       .subscribe(
       res => { this.movies = res },
 
     );
-    console.log(this.deneme());
   }
-
 
   gotData(data) {
     var movies = data.val();
@@ -64,22 +44,15 @@ export class TestComponent implements OnInit {
       var firstmovie = movies[k].firstmovie;
       var secondmovie = movies[k].secondmovie;
     }
-
-
   }
 
   deneme() {
     var myArray = [346364,181808,354912,141052];
     var rand = myArray[Math.floor(Math.random() * myArray.length)];
     return rand;
-
   }
 
   errData(err) {
     console.log(err);
-  }
-
-  getCourses(listPath): Observable<any[]> {
-    return this.db.list(listPath).valueChanges();
   }
 }

@@ -87,38 +87,11 @@ export class AuthService {
       })
       .catch(error => console.log(error));
   }
-  /*
-    emailSignUp(email: string, password: string) {
-      return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
-        .then((user) => {
-          this.authState = user
-          this.updateUserData()
-        })
-        .catch(error => console.log(error));
-    }
-  
-    emailLogin(email: string, password: string) {
-      return this.afAuth.auth.signInWithEmailAndPassword(email, password)
-        .then((user) => {
-          this.authState = user
-          this.updateUserData()
-        })
-        .catch(error => console.log(error));
-    }
-  
-    resetPassword(email: string) {
-      const fbAuth = firebase.auth();
-  
-      return fbAuth.sendPasswordResetEmail(email)
-        .then(() => console.log('email sent'))
-        .catch((error) => console.log(error))
-    }
-  */
+
   signOut(): void {
     this.afAuth.auth.signOut();
     this.router.navigate([''])
   }
-
 
   private updateUserData(): void {
 
@@ -133,7 +106,7 @@ export class AuthService {
     userRef.update(data)
       .catch(error => console.log(error));
   }
-  
+
 
 
 }
