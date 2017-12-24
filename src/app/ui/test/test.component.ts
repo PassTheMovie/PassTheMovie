@@ -8,6 +8,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import * as firebase from 'firebase/app';
 import { MoviesService } from '../../services/movies.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-test',
@@ -15,12 +16,14 @@ import { MoviesService } from '../../services/movies.service';
   styleUrls: ['./test.component.css']
 })
 export class TestComponent implements OnInit {
+  
   movie: any;
   movies: any;
   id: string;
   constructor(private db: AngularFireDatabase,
     public auth: AuthService,
-    public _movieRecomService: MoviesService
+    public _movieRecomService: MoviesService,
+    public _router: Router
   ) { }
 
   ngOnInit() {
@@ -54,5 +57,9 @@ export class TestComponent implements OnInit {
 
   errData(err) {
     console.log(err);
+  }
+
+  onDetails(id) {
+    this._router.navigate(['/movie/' + id]);
   }
 }

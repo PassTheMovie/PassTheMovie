@@ -8,6 +8,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import * as firebase from 'firebase/app';
 import { MoviesService } from '../../services/movies.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-test2',
@@ -17,7 +18,9 @@ import { MoviesService } from '../../services/movies.service';
 export class Test2Component implements OnInit {
   movies: any;
   constructor(
-    public _movieRecomService: MoviesService
+    public _movieRecomService: MoviesService,
+    public _router: Router
+
 
   ) { }
 
@@ -32,5 +35,9 @@ export class Test2Component implements OnInit {
     var myArray = [346364,181808,354912,141052];
     var rand = myArray[Math.floor(Math.random() * myArray.length)];
     return rand;
+  }
+
+  onDetails(id) {
+    this._router.navigate(['/movie/' + id]);
   }
 }
